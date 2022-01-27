@@ -1,3 +1,12 @@
+var socket = io();
+
+
+socket.on("weather", function (data) {
+    weath = data;
+})
+
+
+
 
 let matrix = [];
 let n = 80;
