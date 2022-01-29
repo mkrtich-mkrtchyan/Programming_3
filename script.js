@@ -16,8 +16,8 @@ let grassArr = [];
 let grassEaterArr = [];
 let grassEaterEaterArr=[];
 
-let trashArr = [];
-let trasherArr = [];
+let coinArr = [];
+let bankAutoArr = [];
 
 
 function setup() {
@@ -48,12 +48,12 @@ function setup() {
                 grassEaterEaterArr.push(greateat);
             }
             else if(matrix[y][x] == 4){
-                let tr = new trash(x,y,4);
-                trashArr.push(tr);
+                let tr = new coin(x,y,4);
+                coinArr.push(tr);
             }
             else if(matrix[y][x] == 5){
-                let trer = new trasher(x,y,5);
-                trasherArr.push(trer);
+                let trer = new bbankAuto(x,y,5);
+                bankAutoArr.push(trer);
             }
             
             
@@ -111,15 +111,36 @@ function draw() {
         
     }
     
-    for(let i in trashArr){
-        trashArr[i].die();
-        trashArr[i].energyst();
+    for(let i in coinArr){
+        coinArr[i].die();
+        coinArr[i].energyst();
     }
     for(let i in trasherArr){
-        trasherArr[i].move();
-        trasherArr[i].eat();
-        trasherArr[i].die();
+        bankAutoArr[i].move();
+        bankAutoArr[i].eat();
+        bankAutoArr[i].die();
     }
 
 }
 
+
+
+ socket.on('send matrix', nkarel)
+ 
+
+
+function Grass() {
+    socket.emit("grass")
+}
+function addGrassEater() {
+    socket.emit("add grass")
+}
+function addGrassEaterEater() {
+    socket.emit("add grassEaterEater")
+}
+function addCoin() {
+    socket.emit("add coin")
+}
+function addBankAuto() {
+    socket.emit("add bankAuto")
+}
