@@ -87,9 +87,9 @@ module.exports = class bankAuto extends LivingCreature{
             
         }
         eat() {
-            var trash = random(this.chooseCell(4));
+            var coin = random(this.chooseCell(4));
            
-            if (trash) {
+            if (coin) {
                 var newX = coin[0];
                 var newY = coin[1];
                 matrix[newY][newX] = this.index;
