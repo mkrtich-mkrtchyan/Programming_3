@@ -1,21 +1,12 @@
 let LivingCreature = require('./LivingCreature')
 
 module.exports = class GrassEater extends LivingCreature{
-    constructor(x, y, index){
-        super(x, y, index);
+    constructor(x, y){
+        super(x, y);
         this.energy = 8
     
-
-
-
-    constructor(x, y, index) {
-        this.x = x;
-        this.y = y;
-        this.energy = 5;
-        this.index = index;
-        this.directions = [];
-
     }
+
 
     getNewCoordinates() {
         this.directions = [

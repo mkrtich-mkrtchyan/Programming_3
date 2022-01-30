@@ -5,7 +5,7 @@ module.exports = class coin extends LivingCreature{
         super(x, y, index);
         this.energy = 8
    
-
+    }
 
     consturctor(x, y, index) {
         this.x = x;
