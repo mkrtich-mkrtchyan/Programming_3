@@ -12,9 +12,9 @@ let matrix = [];
 let n = 50;
 let m = 50;
 let side = 10;
-// let grassArr = [];
-// let grassEaterArr = [];
-// let grassEaterEaterArr=[];
+let grassArr = [];
+let grassEaterArr = [];
+let grassEaterEaterArr=[];
 
 let coinArr = [];
 let bankAutoArr = [];
@@ -28,7 +28,7 @@ function setup() {
 }
     
 
-function nkarel() {
+function nkarel(matrix) {
 
     for (let y = 0; y < matrix.length; y++) {
         for (let x = 0; x < matrix[y].length; x++) {

@@ -12,8 +12,10 @@ app.get('/', function (req, res) {
     res.redirect('index.html');
 });
 server.listen(3000, function () {
-    console.log("runed on port:3000");
+   console.log("runed on port:3000");
 });
+
+
 grassArr = [];
 grassEaterArr = [];
 grassEaterArr = [];
@@ -30,7 +32,7 @@ const coin = require('./coin')
 const bankAuto = require('./bankAuto')
 
 function rand(min, max) {
-    return Math.random() * (max - min) + min;
+    return Math.floor() * (max - min) + min;
 }
 
 for (let i = 0; i < n; i++) {
@@ -82,19 +84,7 @@ function ObjectCreator(matrix) {
 
 
 
-grassArr = []
-grassEaterArr = []
-grassEaterEaterArr = []
-coinArr = []
-cankAuto = []
 
-
-
-const grass = require("./grass")
-const grassEater = require("./GrassEater")
-const grassEaterEater = require("./GrassEaterEater")
-const coinArr = require("./coin")
-const bankAuto = require("./bankAuto")
 
 
   

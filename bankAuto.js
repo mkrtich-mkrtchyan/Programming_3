@@ -1,4 +1,4 @@
-const bankAuto = require('./bankAuto');
+
 let LivingCreature = require('./LivingCreature')
 
 module.exports = class bankAuto extends LivingCreature{
@@ -60,8 +60,8 @@ module.exports = class bankAuto extends LivingCreature{
         }
     
         move() {
-            var newCell = random(this.chooseCell(0))
-            var xCell = random(this.chooseCell(1))
+            var newCell = Math.floor(this.chooseCell(0))
+            var xCell = Math.floor(this.chooseCell(1))
             if (newCell) {
                 this.diesel--;
                 var newX = newCell[0];
@@ -87,7 +87,7 @@ module.exports = class bankAuto extends LivingCreature{
             
         }
         eat() {
-            var coin = random(this.chooseCell(4));
+            var coin = coinCells[Math.floor(Math.random() * emptyCells.length)]
            
             if (coin) {
                 var newX = coin[0];

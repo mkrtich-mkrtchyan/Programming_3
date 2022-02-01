@@ -56,8 +56,9 @@ module.exports = class GrassEaterEater extends LivingCreature{
     }
 
     move() {
-        var newCell = random(this.chooseCell(1));
-        var dCell = random(this.chooseCell(0));
+        this.emptyCells = this.chooseCell(0)
+        this.emptyCells = this.chooseCell(1)
+        var newCell = grassEaterEaterCells[Math.floor(Math.random() * emptyCells.length)]
         if (newCell) {
             this.energy -= 2;
             var newX = newCell[0];
@@ -68,7 +69,6 @@ module.exports = class GrassEaterEater extends LivingCreature{
 
             this.y = newY;
             this.x = newX;
-            // console.log(this.energy);
         }
 
         else if (dCell) {
@@ -96,7 +96,8 @@ module.exports = class GrassEaterEater extends LivingCreature{
 
 
     eat() {
-        var great = random(this.chooseCell(2));
+        var great = grassEaterEaterCells[Math.floor(Math.random() * emptyCells.length)]
+
         if (great) {
             var newX = great[0];
             var newY = great[1];
@@ -121,7 +122,7 @@ this.mul();
         }
     }
     mul() {
-        var newCell = random(this.chooseCell(2));
+        var newCell = grassEaterEaterCells[Math.floor(Math.random() * emptyCells.length)]
         if (this.energy >= 15 && newCell) {
             var newgrasseatereater = new GrassEaterEater(newCell[0], newCell[1], this.index);
             grassEaterEaterArr.push(newgrasseatereater);

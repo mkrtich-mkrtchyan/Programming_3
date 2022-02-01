@@ -1,3 +1,4 @@
+const coin = require('./coin');
 let LivingCreature = require('./LivingCreature')
 
 module.exports = class GrassEater extends LivingCreature{
@@ -42,7 +43,7 @@ module.exports = class GrassEater extends LivingCreature{
 
 
     move() {
-        let newCell = random(this.chooseCell(0));
+        let newCell = [Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
             this.energy--;
@@ -62,7 +63,7 @@ module.exports = class GrassEater extends LivingCreature{
 
     }
     mul() {
-        let newCell = random(this.chooseCell(0));
+        let newCell = [Math.floor(Math.random() * emptyCells.length)]
         if (this.energy >= 8 && newCell) {
             let newGrassEater = new GrassEater(newCell[0], newCell[1], this.index);
             grassEaterArr.push(newGrassEater);
@@ -73,7 +74,7 @@ module.exports = class GrassEater extends LivingCreature{
 
 
     eat() {
-        let newCell1 = random(this.chooseCell(1));
+        let newCell1 = [Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell1) {
             let newX = newCell1[0];
@@ -103,7 +104,7 @@ module.exports = class GrassEater extends LivingCreature{
             matrix[this.y][this.x] = 4;
             for (let i in grassEaterArr) {
                 if (this.x == grassEaterArr[i].x && this.y == grassEaterArr[i].y) {
-                    trashArr.push(new trash(this.x, this.y, 4))
+                    coinArr.push(new coin(this.x, this.y, 4))
                     break;
                 }
             }
