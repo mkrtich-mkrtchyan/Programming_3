@@ -1,14 +1,14 @@
 
+const Coin = require('./Coin');
 let LivingCreature = require('./LivingCreature')
 
-module.exports = class bankAuto extends LivingCreature{
+module.exports = class BankAuto extends LivingCreature{
 
     
 
      
         constructor(x, y, index) {
-            this.x = x;
-            this.y = y;
+            super(x,y)
             this.index = index;
             this.diesel = 200;
             this.directions = [];
@@ -87,18 +87,21 @@ module.exports = class bankAuto extends LivingCreature{
             
         }
         eat() {
-            var coin = coinCells[Math.floor(Math.random() * emptyCells.length)]
+            var emptyCells = super.chooseCell(0);
+            // var coin = coinCells[Math.floor(Math.random() * emptyCells.length)]
+            var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
+
            
-            if (coin) {
-                var newX = coin[0];
-                var newY = coin[1];
-                matrix[newY][newX] = this.index;
+            if (newCell) {
+                var newX = Coin[0];
+                var newY = Coin[1];
+                // matrix[newY][newX] = this.index;
                 matrix[this.y][this.x] = 0;
-    
+     
     
     
                 for (var i in coinArr) {
-                    if (newX == coinArr[i].x && newY == coinArr[i].y) {
+                    if (newX == coinArr[i].x && newY == CoinArr[i].y) {
                         coinArr.splice(i, 1);
                         break;
                     }

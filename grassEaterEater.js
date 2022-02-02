@@ -2,8 +2,7 @@ let LivingCreature = require('./LivingCreature');
 
 module.exports = class GrassEaterEater extends LivingCreature{
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+       super(x,y)
        
         this.energy = 9;
         this.directions = [];
@@ -56,9 +55,11 @@ module.exports = class GrassEaterEater extends LivingCreature{
     }
 
     move() {
-        this.emptyCells = this.chooseCell(0)
-        this.emptyCells = this.chooseCell(1)
-        var newCell = grassEaterEaterCells[Math.floor(Math.random() * emptyCells.length)]
+        // this.emptyCells = this.chooseCell(0)
+        // this.emptyCells = this.chooseCell(1)
+        // var newCell = grassEaterEaterCells[Math.floor(Math.random() * emptyCells.length)]
+        var emptyCells = super.chooseCell(0,1);
+        var newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
         if (newCell) {
             this.energy -= 2;
             var newX = newCell[0];
@@ -71,7 +72,7 @@ module.exports = class GrassEaterEater extends LivingCreature{
             this.x = newX;
         }
 
-        else if (dCell) {
+        else if (newCell) {
             this.energy--;
             var newX1 = dCell[0];
             var newY1 = dCell[1];
@@ -96,9 +97,12 @@ module.exports = class GrassEaterEater extends LivingCreature{
 
 
     eat() {
-        var great = grassEaterEaterCells[Math.floor(Math.random() * emptyCells.length)]
+        // var great = grassEaterEaterCells[Math.floor(Math.random() * emptyCells.length)]
+        let emptyCells = super.chooseCell(1)
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
-        if (great) {
+        if (newCell) {
+            
             var newX = great[0];
             var newY = great[1];
             matrix[newY][newX] = this.index;
@@ -115,6 +119,7 @@ module.exports = class GrassEaterEater extends LivingCreature{
             this.y = newY;
             this.x = newX;
             this.energy += 2;
+           
 this.mul();
         }
         else{

@@ -1,4 +1,4 @@
-const coin = require('./coin');
+// const coin = require('./coin');
 let LivingCreature = require('./LivingCreature')
 
 module.exports = class GrassEater extends LivingCreature{
@@ -22,28 +22,10 @@ module.exports = class GrassEater extends LivingCreature{
         ];
     }
 
-
-
-    chooseCell(character) {
-
-        let found = [];
-        this.getNewCoordinates();
-        for (let i in this.directions) {
-            let x = this.directions[i][0];
-            let y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-
-                if (matrix[y][x] == character) {
-                    found.push(this.directions[i]);
-                }
-            }
-        }
-        return found;
-    }
-
-
     move() {
-        let newCell = [Math.floor(Math.random() * emptyCells.length)]
+
+        var emptyCells = super.chooseCell(0);
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell) {
             this.energy--;
@@ -63,7 +45,8 @@ module.exports = class GrassEater extends LivingCreature{
 
     }
     mul() {
-        let newCell = [Math.floor(Math.random() * emptyCells.length)]
+        let emptyCells = super.chooseCell(0)
+        let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
         if (this.energy >= 8 && newCell) {
             let newGrassEater = new GrassEater(newCell[0], newCell[1], this.index);
             grassEaterArr.push(newGrassEater);
@@ -74,7 +57,8 @@ module.exports = class GrassEater extends LivingCreature{
 
 
     eat() {
-        let newCell1 = [Math.floor(Math.random() * emptyCells.length)]
+        let emptyCells = super.chooseCell(1)
+        let newCell1 = emptyCells[Math.floor(Math.random() * emptyCells.length)]
 
         if (newCell1) {
             let newX = newCell1[0];
@@ -104,7 +88,7 @@ module.exports = class GrassEater extends LivingCreature{
             matrix[this.y][this.x] = 4;
             for (let i in grassEaterArr) {
                 if (this.x == grassEaterArr[i].x && this.y == grassEaterArr[i].y) {
-                    coinArr.push(new coin(this.x, this.y, 4))
+                    coinArr.push(new Coin(this.x, this.y))
                     break;
                 }
             }

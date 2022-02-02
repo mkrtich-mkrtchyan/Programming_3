@@ -1,23 +1,19 @@
 var socket = io();
 
 
-socket.on("weather", function (data) {
-    weath = data;
-})
+// socket.on("weather", function (data) {
+//     weath = data;
+// })
 
 
 
 
-let matrix = [];
-let n = 50;
+
+let n = 60;
 let m = 50;
-let side = 10;
-let grassArr = [];
-let grassEaterArr = [];
-let grassEaterEaterArr=[];
+let side = 20;
 
-let coinArr = [];
-let bankAutoArr = [];
+
 
 
 function setup() {
@@ -61,32 +57,7 @@ function nkarel(matrix) {
                 rect(x * side, y * side, side, side);
             }
         }
-    } for (let i in grassArr) {
-
-        grassArr[i].mul();
-
-    }
-    for (let i in grassEaterArr) {
-        
-        grassEaterArr[i].eat();
-       
-    }
-    for(let i in grassEaterEaterArr){
-       
-        grassEaterEaterArr[i].eat();
-      
-        
-    }
-    
-    for(let i in coinArr){
-        coinArr[i].die();
-        coinArr[i].energyst();
-    }
-    for(let i in  bankAutoArr){
-        bankAutoArr[i].move();
-        bankAutoArr[i].eat();
-        bankAutoArr[i].die();
-    }
+    } 
 
 }
 

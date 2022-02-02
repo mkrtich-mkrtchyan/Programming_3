@@ -1,18 +1,13 @@
 let LivingCreature = require('./LivingCreature')
 
-module.exports = class coin extends LivingCreature{
-    constructor(x, y, index){
-        super(x, y, index);
-        this.energy = 8
+module.exports = class Coin extends LivingCreature{
+    constructor(x, y){
+        super(x, y);
+        this.energy = 8;
+        this.year = 1;
    
     }
 
-    consturctor(x, y, index) {
-        this.x = x;
-        this.y = y;
-        this.index = index;
-        this.year = 1;
-    }
 
     die() {
 
