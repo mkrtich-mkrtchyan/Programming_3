@@ -7,11 +7,9 @@ var socket = io();
 
 
 
-
-
-let n = 60;
-let m = 50;
-let side = 20;
+let n = 30;
+let m = 30;
+let side = 15;
 
 
 
@@ -19,7 +17,7 @@ let side = 20;
 function setup() {
     frameRate(30);
 
-    background('#acacac');
+    background('#2a2e36');
     createCanvas(50* side, 50 * side);
 }
     

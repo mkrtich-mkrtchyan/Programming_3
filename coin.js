@@ -5,6 +5,7 @@ module.exports = class Coin extends LivingCreature{
         super(x, y);
         this.energy = 8;
         this.year = 1;
+    
    
     }
 
@@ -23,6 +24,7 @@ module.exports = class Coin extends LivingCreature{
             }
         }
     }
+
     energyst() {
         this.year++;
 
